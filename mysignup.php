@@ -23,7 +23,7 @@ if (isset($_POST['name']) && (isset($_POST['email'])) && (isset($_POST['pass']))
 	// $myemail="siddheysankhe1996@gmail.com";
 
 	$sentOtp = mt_rand(100000, 999999);
-	//$dbc = mysqli_connect("localhost", "root", "", "project") or die("Error connecting sql server");
+	//$dbc = mysqli_connect("localhost", "root", "", "online_groc") or die("Error connecting sql server");
 	$query = "INSERT INTO users (Firstname,Email,DOB,Address) VALUES ('$name','$email','$dob','$addr')";
 	$_SESSION['signupUser'] = $email;
 	$result = mysqli_query($dbc, $query);
@@ -104,7 +104,6 @@ if (isset($_POST['name']) && (isset($_POST['email'])) && (isset($_POST['pass']))
 	}
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -188,25 +187,7 @@ if (isset($_POST['name']) && (isset($_POST['email'])) && (isset($_POST['pass']))
         <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 		<li class="nav-item"><a class="nav-link" href="cart_viewvik.php">Cart</a></li>
 
-		<li>
-		<?php
-						if(isset($_SESSION['loginUser']))
-						{
-							$uemail=$_SESSION['loginUser'];
-							echo "</li>
-        <li class=\"nav-item\"><a href=\"changePass.php\" class=\"nav-link\">Change Password</strong></a></li>
-								<li class=\"nav-item\"><a href=\"index.php?logout=1\" class=\"nav-link\">LOGOUT</a></li>
-								</li>";
-						}
-						else
-						{
-							echo "</li>
-        <li class=\"nav-item\"><a href=\"index_login.html\" class=\"nav-link\">Login</a></li>
-							<li class=\"nav-item\"><a href=\"index_signup.html\" class=\"nav-link\">Signup</a></li>
-							</li>";
-						}
-					?>
-			</li>
+		
 			
 
         
